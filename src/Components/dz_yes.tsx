@@ -4,7 +4,10 @@ import classes from './TableReviews.module.css';
 const data = [
     {
         title: '内蒙古农业大学',
-        author: 'Isaac Asimov',
+        author: {
+            Content: '2024单招专业级人数发布',
+            url: './2024/nm-dz-zyj.html',
+        },
         Labels: {
             Major: '农学',
             Difficulty: '过太高',
@@ -14,7 +17,10 @@ const data = [
     },
     {
         title: '内蒙古民族大学',
-        author: 'Mary Shelley',
+        author: {
+            Content: '2024单招专业级人数发布',
+            url: './2024/nm-dz-zyj.html',
+        },
         Labels: {
             Major: '蒙医学',
             Difficulty: '过太高',
@@ -24,7 +30,10 @@ const data = [
     },
     {
         title: '内蒙古师范大学',
-        author: 'Stanislaw Lem',
+        author: {
+            Content: '2024单招专业级人数发布',
+            url: './2024/nm-dz-zyj.html',
+        },
         Labels: {
             Major: '师范',
             Difficulty: '过太高',
@@ -34,7 +43,10 @@ const data = [
     },
     {
         title: '包头轻工职业技术学院',
-        author: 'Frank Herbert',
+        author: {
+            Content: '2024单招专业级人数发布',
+            url: './2024/nm-dz-zyj.html',
+        },
         Labels: {
             Major: '机电',
             Difficulty: '过太高',
@@ -44,7 +56,10 @@ const data = [
     },
     {
         title: '内蒙古建筑职业技术学院',
-        author: 'Ursula K. Le Guin',
+        author: {
+            Content: '2024单招专业级人数发布',
+            url: './2024/nm-dz-zyj.html',
+        },
         Labels: {
             Major: '建筑',
             Difficulty: '过太高',
@@ -54,7 +69,10 @@ const data = [
     },
     {
         title: '内蒙古电子信息职业技术学院',
-        author: 'Philip K Dick',
+        author: {
+            Content: '2024单招专业级人数发布',
+            url: './2024/nm-dz-zyj.html',
+        },
         Labels: {
             Major: '计算机',
             Difficulty: '过太高',
@@ -65,7 +83,7 @@ const data = [
 ];
 // let Schoolsvg;
 const SvgDz = {
-    Schoolsvg: <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-school"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M22 9l-10 -4l-10 4l10 4l10 -4v6" /><path d="M6 10.6v5.4a6 3 0 0 0 12 0v-5.4" /></svg>
+    Schoolsvg: <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="icon icon-tabler icons-tabler-outline icon-tabler-school"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M22 9l-10 -4l-10 4l10 4l10 -4v6" /><path d="M6 10.6v5.4a6 3 0 0 0 12 0v-5.4" /></svg>
 };
 export default function dz_yes() {
     const rows = data.map((row) => {
@@ -78,17 +96,15 @@ export default function dz_yes() {
                 <Table.Td>
                     <Anchor component="button" fz="sm">
                         {SvgDz.Schoolsvg} {row.title}&nbsp;
-                        <Badge color={row.Color} variant="light">
-                            {row.Color == "green" ? "公办" : "民办"}
-                        </Badge>
+                        <Badge color="green" variant="light">公办</Badge>
                     </Anchor>
                 </Table.Td>
                 <Table.Td>
                     <Badge color='blue' variant="light">{row.Labels.Major}</Badge>
                 </Table.Td>
                 <Table.Td>
-                    <Anchor component="button" fz="sm">
-                        {row.author}
+                    <Anchor fz="sm" href={row.author.url}>
+                        {row.author.Content}
                     </Anchor>
                 </Table.Td>
                 <Table.Td>{Intl.NumberFormat().format(totalReviews)}</Table.Td>
