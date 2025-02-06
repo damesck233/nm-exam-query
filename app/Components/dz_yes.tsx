@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import ButtonCopy from './ButtonCopy';
 import { IconChevronDown, IconChevronUp, IconSearch, IconSelector } from '@tabler/icons-react';
-import data from './dz_Data';
+import data from '../Data/2024/dz_Data';
 import {
     Badge,
     Center,

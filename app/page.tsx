@@ -2,7 +2,6 @@ import "@mantine/core/styles.css";
 import {MantineProvider, Progress} from "@mantine/core";
 import { theme } from "../theme";
 import HeaderMegaMenu from "./Components/HeaderSimple";
-// import Danzyes from "./Components/dz_yes";
 import Djs from  "./Components/dz_Countdown_time"
 import Danzyes from "./Components/dz_yes";
 
