@@ -19,7 +19,10 @@ import classes from './TableSort.module.css';
 interface RowData {
     name: string;
     email: string;
-    company: string;
+    company: {
+        Content: string;
+        Link: string;
+    } | string;
     CodePaste: string;
 }
 
@@ -51,7 +54,15 @@ function Th({ children, reversed, sorted, onSort }: ThProps) {
 function filterData(data: RowData[], search: string) {
     const query = search.toLowerCase().trim();
     return data.filter((item) =>
-        keys(data[0]).some((key) => item[key].toLowerCase().includes(query))
+        keys(data[0]).some((key) => {
+            const value = item[key as keyof RowData];
+            if (typeof value === 'string') {
+                return value.toLowerCase().includes(query);
+            } else if (typeof value === 'object' && value !== null && 'Content' in value) {
+                return value.Content.toLowerCase().includes(query);
+            }
+            return false;
+        })
     );
 }
 
@@ -67,11 +78,19 @@ function sortData(
 
     return filterData(
         [...data].sort((a, b) => {
-            if (payload.reversed) {
-                return b[sortBy].localeCompare(a[sortBy]);
-            }
+            const aValue = sortBy === 'company' ?
+                (typeof a[sortBy] === 'string' ? a[sortBy] : a[sortBy].Content) :
+                a[sortBy];
+            const bValue = sortBy === 'company' ?
+                (typeof b[sortBy] === 'string' ? b[sortBy] : b[sortBy].Content) :
+                b[sortBy];
 
-            return a[sortBy].localeCompare(b[sortBy]);
+            if (typeof aValue === 'string' && typeof bValue === 'string') {
+                return payload.reversed ?
+                    bValue.localeCompare(aValue) :
+                    aValue.localeCompare(bValue);
+            }
+            return 0;
         }),
         payload.search
     );
@@ -100,7 +119,15 @@ export default function Danzyes() {
         <Table.Tr key={row.name}>
             <Table.Td><Badge color="green" variant="light">公办</Badge> {row.name}</Table.Td>
             <Table.Td>{row.email}</Table.Td>
-            <Table.Td>{row.company}</Table.Td>
+            <Table.Td>
+                {typeof row.company === 'string' ? (
+                    row.company
+                ) : (
+                    <a href={row.company.Link} target="_blank" rel="noopener noreferrer" style={{ color: '#228be6', textDecoration: 'none' }}>
+                        {row.company.Content}
+                    </a>
+                )}
+            </Table.Td>
             <Table.Td><ButtonCopy codePaste={row.CodePaste} /></Table.Td>
         </Table.Tr>
     ));
