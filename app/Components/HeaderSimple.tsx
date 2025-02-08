@@ -6,10 +6,10 @@ import { useDisclosure } from '@mantine/hooks';
 import classes from './HeaderSimple.module.css';
 
 const links = [
-    { link: '/about', label: '首页' },
-    { link: '/pricing', label: '单招' },
-    { link: '/learn', label: '高考' },
-    { link: '/community', label: '反馈 & 帮助' },
+    { link: '/', label: '首页' },
+    { link: '/data', label: '单招' },
+    { link: '/gk', label: '高考' },
+    { link: '/help', label: '反馈 & 帮助' },
 ];
 
 export default function HeaderSimple() {
