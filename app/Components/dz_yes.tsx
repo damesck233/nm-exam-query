@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import ButtonCopy from './ButtonCopy';
 import { IconChevronDown, IconChevronUp, IconSearch, IconSelector } from '@tabler/icons-react';
-import data from '../Data/2024/dz_Data';
+import data from '../Data/2025/dz_Data';
 import {
     Badge,
     Center,
@@ -118,7 +118,7 @@ export default function Danzyes() {
     const rows = sortedData.map((row) => (
         <Table.Tr key={row.name}>
             <Table.Td><Badge color="green" variant="light">公办</Badge> {row.name}</Table.Td>
-            <Table.Td>{row.email}</Table.Td>
+            <Table.Td>{row.Labels}</Table.Td>
             <Table.Td>
                 {typeof row.company === 'string' ? (
                     row.company
@@ -141,37 +141,43 @@ export default function Danzyes() {
                 value={search}
                 onChange={handleSearchChange}
             />
-            <Table horizontalSpacing="md" verticalSpacing="xs" miw={700} layout="fixed">
+            <Table horizontalSpacing="md" verticalSpacing="xs" miw={700} layout="fixed" style={{ tableLayout: 'fixed' }}>
+                <colgroup>
+                    <col style={{ width: '25%' }} />
+                    <col style={{ width: '25%' }} />
+                    <col style={{ width: '40%' }} />
+                    <col style={{ width: '15%' }} />
+                </colgroup>
                 <Table.Tbody>
                     <Table.Tr>
-                        <Th
-                            sorted={sortBy === 'name'}
+                        <Table.Th
+                            {...(sortBy === 'name' ? { sorted: true } : {})}
                             reversed={reverseSortDirection}
-                            onSort={() => setSorting('name')}
+                            onClick={() => setSorting('name')}
                         >
                             学校名称
-                        </Th>
-                        <Th
-                            sorted={sortBy === 'email'}
+                        </Table.Th>
+                        <Table.Th
+                            {...(sortBy === 'email' ? { sorted: true } : {})}
                             reversed={reverseSortDirection}
-                            onSort={() => setSorting('email')}
+                            onClick={() => setSorting('email')}
                         >
                             标签
-                        </Th>
-                        <Th
-                            sorted={sortBy === 'company'}
+                        </Table.Th>
+                        <Table.Th
+                            {...(sortBy === 'company' ? { sorted: true } : {})}
                             reversed={reverseSortDirection}
-                            onSort={() => setSorting('company')}
+                            onClick={() => setSorting('company')}
                         >
                             最新通知
-                        </Th>
-                        <Th
-                            sorted={sortBy === 'CodePaste'}
+                        </Table.Th>
+                        <Table.Th
+                            {...(sortBy === 'CodePaste' ? { sorted: true } : {})}
                             reversed={reverseSortDirection}
-                            onSort={() => setSorting('CodePaste')}
+                            onClick={() => setSorting('CodePaste')}
                         >
                             学校代码
-                        </Th>
+                        </Table.Th>
                     </Table.Tr>
                 </Table.Tbody>
                 <Table.Tbody>

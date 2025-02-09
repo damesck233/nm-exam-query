@@ -33,6 +33,7 @@ const RAW_RUNTIME_STATE =
           ["@types/node", "npm:22.10.7"],\
           ["@types/react", "npm:19.0.7"],\
           ["@types/react-dom", "virtual:0369073f46b5f88f649ea08fb178a0d98fbad928ad722ff8328302a58fde85f8add93dd99a8d526537383617c28839c1cf3714d4a728783f92af0a6b45a41b41#npm:19.0.3"],\
+          ["clsx", "npm:2.1.1"],\
           ["eslint", "virtual:0369073f46b5f88f649ea08fb178a0d98fbad928ad722ff8328302a58fde85f8add93dd99a8d526537383617c28839c1cf3714d4a728783f92af0a6b45a41b41#npm:9.18.0"],\
           ["eslint-config-next", "virtual:0369073f46b5f88f649ea08fb178a0d98fbad928ad722ff8328302a58fde85f8add93dd99a8d526537383617c28839c1cf3714d4a728783f92af0a6b45a41b41#npm:15.1.5"],\
           ["next", "virtual:0369073f46b5f88f649ea08fb178a0d98fbad928ad722ff8328302a58fde85f8add93dd99a8d526537383617c28839c1cf3714d4a728783f92af0a6b45a41b41#npm:15.1.5"],\
@@ -3739,6 +3740,7 @@ const RAW_RUNTIME_STATE =
           ["@types/node", "npm:22.10.7"],\
           ["@types/react", "npm:19.0.7"],\
           ["@types/react-dom", "virtual:0369073f46b5f88f649ea08fb178a0d98fbad928ad722ff8328302a58fde85f8add93dd99a8d526537383617c28839c1cf3714d4a728783f92af0a6b45a41b41#npm:19.0.3"],\
+          ["clsx", "npm:2.1.1"],\
           ["eslint", "virtual:0369073f46b5f88f649ea08fb178a0d98fbad928ad722ff8328302a58fde85f8add93dd99a8d526537383617c28839c1cf3714d4a728783f92af0a6b45a41b41#npm:9.18.0"],\
           ["eslint-config-next", "virtual:0369073f46b5f88f649ea08fb178a0d98fbad928ad722ff8328302a58fde85f8add93dd99a8d526537383617c28839c1cf3714d4a728783f92af0a6b45a41b41#npm:15.1.5"],\
           ["next", "virtual:0369073f46b5f88f649ea08fb178a0d98fbad928ad722ff8328302a58fde85f8add93dd99a8d526537383617c28839c1cf3714d4a728783f92af0a6b45a41b41#npm:15.1.5"],\

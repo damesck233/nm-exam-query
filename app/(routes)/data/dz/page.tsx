@@ -1,4 +1,3 @@
-import "@mantine/core/styles.css";
 import HeaderMegaMenu from "../../../Components/HeaderSimple";
 import Djs from "../../../Components/dz_Countdown_time"
 import Danzyes from "../../../Components/dz_yes";

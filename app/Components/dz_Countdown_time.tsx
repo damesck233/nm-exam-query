@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { Progress, Text, Group, Center } from '@mantine/core';
 
 function DateProgressBar() {
-    const startDate = new Date('2024-09-01'); // 开始日期
+    const startDate = new Date('2025-09-01'); // 开始日期
     const endDate = new Date('2025-03-01');   // 结束日期 (同时作为考试日期)
     const examDate = endDate; // 将结束日期作为考试日期
     const [progress, setProgress] = useState(0);

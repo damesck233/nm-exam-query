@@ -22,16 +22,21 @@ export default function ButtonCopy({ codePaste }: ButtonCopyProps) {
                 variant="light"
                 rightSection={
                     clipboard.copied ? (
-                        <IconCheck size={16} stroke={1.5} />
+                        <IconCheck size={14} stroke={1.5} />
                     ) : (
-                        <IconCopy size={16} stroke={1.5} />
+                        <IconCopy size={14} stroke={1.5} />
                     )
                 }
                 radius="md"
-                size="sm"
-                pr={12}
-                h={40}
-                styles={{ section: { marginLeft: 16 } }}
+                size="compact-sm"
+                pr={6}
+                pl={8}
+                h={28}
+                styles={{
+                    section: { marginLeft: 4 },
+                    inner: { justifyContent: 'space-between' },
+                    label: { fontSize: '0.75rem' }
+                }}
                 onClick={() => clipboard.copy(codePaste)}
             >
                 {codePaste}
